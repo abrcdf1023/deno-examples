@@ -4,6 +4,9 @@ const app = new Application();
 
 app.use(async ctx => {
   const filepath = `${Deno.cwd()}/serving-frontend`
+  // Use the --inspect-brk flag to break execution on the first line:
+  // Open chrome://inspect and click Inspect next to target: Devices
+  // debugger;
   await send(ctx, ctx.request.url.pathname, {
     root: filepath,
     index: "index.html"
